@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+The given JS code is broken. This is because:
+Even when yellow box is clicked, it is alerted that red is clicked.
+
+Fix the code such that:
+1. It alerts as 'yellow is clicked' when yellow box is clicked.
+2. and alerts as 'red is clicked' when the red box is clicked.
+3. A single alert is generated when any of the box is clicked.
+
+Please NOTE that the link to assets (like images) need to be set in global context.
+For example:
+To access an image from assets folder correct way to set src attribute is 
+src = 'profile.png' instead of src = './assets/profile.png'
+-->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid;
+        }
+
+        .red {
+            padding: 2rem;
+            height: 20rem;
+            width: 20rem;
+            background-color: red;
+        }
+
+        .yellow {
+            height: 10rem;
+            width: 10rem;
+            margin: auto;
+            background-color: yellow;
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="red">
+        <div class="yellow"></div>
+    </div>
+
+    <script>
+        //Q The following code is broken. Even when clicked on yellow,
+        let red = document.querySelector(".red");
+
+        red.addEventListener('click', (e) => {
+            if (e.target.classList.contains('yellow')) {
+                window.alert('yellow is clicked');
+            } else {
+                window.alert('red is clicked');
+            }
+        })
+    </script>
+</body>
+
+</html>

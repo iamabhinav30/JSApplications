@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--
+Write a program in JavaScript,
+that implements the following behavior on the above p tags:
+
+1. Single clicking highlights them with red color
+2. Double clicking highlights them with green color
+3. Triple click removes the highlights
+
+Note:
+Here highlight means to set the background of the element to a desired color.
+    -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    p {
+      padding: 10px;
+      margin: 5px;
+      background-color: transparent;
+      cursor: pointer;
+      width: 30%;
+    }
+  </style>
+</head>
+
+<body>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi dolores,
+    rerum repudiandae enim consectetur consequatur quae recusandae,
+    perferendis at quod illum, deleniti similique a eius nulla architecto
+    earum. Iure, deleniti.
+  </p>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi dolores,
+    rerum repudiandae enim consectetur consequatur quae recusandae,
+    perferendis at quod illum, deleniti similique a eius nulla architecto
+    earum. Iure, deleniti.
+  </p>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi dolores,
+    rerum repudiandae enim consectetur consequatur quae recusandae,
+    perferendis at quod illum, deleniti similique a eius nulla architecto
+    earum. Iure, deleniti.
+  </p>
+  <script>
+    // Add click and double-click event listeners to each <p> tag
+    const pTags = document.querySelectorAll("p");
+
+    pTags.forEach((p) => {
+      p.addEventListener("click", (e) => {
+        // THE BELOW LINE IS IMPORTANT
+        const clickCount = e.detail;
+        console.log(e)
+        if (clickCount === 1) {
+          p.style.backgroundColor = "red";
+        } else if (clickCount === 2) {
+          p.style.backgroundColor = "green";
+        } else if (clickCount === 3) {
+          p.style.backgroundColor = "transparent";
+        }
+      });
+    });
+
+  </script>
+</body>
+
+</html>

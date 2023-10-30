@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<!--
+    
+Write a program in JS to do the below mentioned task:
+When the button is clicked, append a <div> element, containing inner text 'Hello', as Child for the <body> element.
+
+    <body>
+        <button>Say Hello</button>
+    </body>
+    
+Please NOTE that the link to assets (like images) need to be set in global context.
+For example:
+To access an image from assets folder correct way to set src attribute is 
+
+src = 'profile.png' instead of src = './assets/profile.png'
+-->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="sayHelloButton">Say Hello</button>
+
+</body>
+
+<script>
+    // Write your JS program here ====
+    // Get the button element by its id
+    const sayHelloButton = document.getElementById("sayHelloButton");
+
+    // Add a click event listener to the button
+    sayHelloButton.addEventListener("click",  () =>{
+        // Create a new <div> element
+        const divElement = document.createElement("div");
+
+        // Set the inner text of the div to "Hello"
+        divElement.innerText = "Hello";
+
+        // Append the div as a child of the <body> element
+        document.body.appendChild(divElement);
+    });
+
+  
+</script>
+
+</html>

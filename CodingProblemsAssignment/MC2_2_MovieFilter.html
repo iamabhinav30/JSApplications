@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+Write a script using JavaScript to make the filter work.
+
+The filter has 4 categories: none, Action, Romance, Comedy
+Each movie card is a div with an h3 and p element.
+The p element has a data-category attribute that holds the information about the category of the movie.
+Use the value of this data-category attribute to filter the movies based on the selected category from the drop-down menu.
+
+NOTE:
+If the category is selected as 'none', show all the movies.
+To hide a movie card, change the style->display property of the div to 'none'.
+To show a movie card, change the style->display property of the div to 'block'.
+
+Abhinav comments : Only JS need to be added
+
+Please NOTE that the link to assets (like images) need to be set in global context.
+For example:
+To access an image from assets folder correct way to set src attribute is 
+
+src = 'profile.png'
+
+instead of 
+
+src = './assets/profile.png'
+-->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding-top: 5rem;
+        }
+
+        .movies {
+            height: 10rem;
+            width: 10rem;
+            margin: 2rem;
+        }
+
+        .price {
+            background-color: rgb(247 84 33);
+            height: 8rem;
+            padding: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .heading {
+            background-color: rgba(0, 0, 0, 0.856);
+            height: 2rem;
+        }
+
+        .heading,
+        .price {
+            color: white;
+            text-align: center;
+            margin: 0;
+        }
+
+        select,
+        h1 {
+            position: fixed;
+        }
+
+        h1 {
+            top: 0px;
+        }
+
+        select {
+            width: 8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>BOOK MY SHOW</h1>
+    <select>
+        <option value="none">None</option>
+        <option value="action">Action</option>
+        <option value="romance">Romance</option>
+        <option value="comedy">Comedy</option>
+    </select>
+
+    <div class="movies">
+        <h3 class="heading">Example-1 action</h3>
+        <p class="price" data-category="action">Rs. 100</p>
+    </div>
+    <div class="movies">
+        <h3 class="heading">Example-2 action</h3>
+        <p class="price" data-category="action">Rs 200</p>
+    </div>
+    <div class="movies">
+        <h3 class="heading">Example-3 action</h3>
+        <p class="price" data-category="action">Rs. 150</p>
+    </div>
+    <div class="movies">
+        <h3 class="heading">Example-4 romance</h3>
+        <p class="price" data-category="romance">Rs 200</p>
+    </div>
+    <div class="movies">
+        <h3 class="heading">Example-5 romance</h3>
+        <p class="price" data-category="romance">Rs. 150</p>
+    </div>
+    <div class="movies">
+        <h3 class="heading">Example-6 romance</h3>
+        <p class="price" data-category="romance">Rs. 150</p>
+    </div>
+    <div class="movies">
+        <h3 class="heading">Example-7 action</h3>
+        <p class="price" data-category="action">Rs 200</p>
+    </div>
+    <div class="movies">
+        <h3 class="heading">Example-8 comedy</h3>
+        <p class="price" data-category="comedy">Rs. 100</p>
+    </div>
+    <div class="movies">
+        <h3 class="heading">Example-9 romance</h3>
+        <p class="price" data-category="romance">Rs. 100</p>
+    </div>
+    <div class="movies">
+        <h3 class="heading">Example-10 comedy</h3>
+        <p class="price" data-category="comedy">Rs 200</p>
+    </div>
+
+</body>
+<script>
+    // Write your JS program here ====
+    // Get a reference to the select element and all movie divs
+    const select = document.querySelector('select');
+    const movies = document.querySelectorAll('.movies');
+
+    // Add an event listener to the select element
+    select.addEventListener('change', filterMovies);
+
+    // Function to filter the movies based on the selected category
+    function filterMovies() {
+        const selectedCategory = select.value; // Get the selected category
+
+        // Loop through all movie divs
+        movies.forEach(movie => {
+            const price = movie.querySelector('.price'); // Get the price element
+            const category = price.getAttribute('data-category'); // Get the data-category attribute value
+
+            // Check if the selected category is 'none' or matches the category of the movie
+            if (selectedCategory === 'none' || selectedCategory === category) {
+                movie.style.display = 'block'; // Show the movie
+            } else {
+                movie.style.display = 'none'; // Hide the movie
+            }
+        });
+    }
+
+</script>
+
+</html>

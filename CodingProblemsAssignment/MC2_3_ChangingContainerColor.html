@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+    Write a program in JavaScript to perform the below-mentioned task:
+
+Use a single event handler (only one element should have an event handler attached to it) and do the following:
+By clicking the color name, change the background color of the div.container to the same.
+
+Note:
+The colors are red, blue and green.
+Don't make any changes to the boilerplate code.
+   -->>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Delegation</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            border: 1px solid;
+            height: 10rem;
+            width: 10rem;
+        }
+
+        .container>div:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="red">red</div>
+        <div class="blue">blue</div>
+        <div class="green">green</div>
+    </div>
+    <script>
+        // Write JS Solution Here =================================
+        const container = document.querySelector('.container');
+        console.log(container);
+        container.addEventListener('click', (e) => { colorSelect(e) });
+
+        function colorSelect(e) {
+            if (e.target.classList.contains('red')) {
+                container.style.backgroundColor = 'red';
+            } else if (e.target.classList.contains('blue')) {
+                container.style.backgroundColor = 'blue';
+            } else if (e.target.classList.contains('green')) {
+                container.style.backgroundColor = 'green';
+            }
+        }
+
+    </script>
+    <!-- 
+
+Which of the following scenarios is most suitable for using event capture in JavaScript?
+
+Handling click events on specific child elements within a parent element and executing different actions based on the clicked element
+
+Correct -> Handling input events on a form and validating user input before it reaches the form submit event.
+
+Adding event listeners to dynamically created elements that are appended to the DOM.
+
+Attaching event handlers to the window object to handle browser resize events.
+    -->
+</body>
